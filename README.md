@@ -20,11 +20,9 @@ Configure the add-on via your Home Assistant front-end under **Supervisor (Hass.
 
 The configuration:
 
-1. hdd_path - path to drive to monitor
-
-2. check_period - interval in minutes / how often to read temperature
-
-3. output_file - log file
+- hdd_path - path to drive to monitor
+- check_period - interval in minutes / how often to read temperature
+- output_file - log file
 
 ## Notes
 
