@@ -1,0 +1,23 @@
+{
+  "name": "HDD Tools",
+  "version": "0.36",
+  "slug": "hdd_tools",
+  "description": "HDD Tools provides S.M.A.R.T information",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "before",
+  "boot": "auto",
+  "map": ["share:rw"],
+  "devices": [ "/dev/sda:/dev/sda:rwm" ],
+  "full_access": true,
+  "homeassistant_api": true,
+  "options": {
+      "hdd_path": "/dev/sda",  
+      "check_period": 1,
+      "output_file": "temp.log"   
+    },
+  "schema": {
+      "hdd_path": "str",
+      "check_period": "int(1,60)",
+      "output_file": "str"
+    }
+}
