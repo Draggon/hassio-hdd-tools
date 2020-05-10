@@ -2,6 +2,10 @@
 <h1>HDD Tools Hass.io Add-on</h1>
 </div>
 
+## General
+
+This add-on provides information about HDD Temperature from S.M.A.R.T using smartmontools.
+Temperature is visible in Home-Assistant via sensor sensor.hdd_temp.
 
 ## Installation
 
@@ -18,7 +22,7 @@ The configuration:
 
 1. hdd_path - path to drive to monitor
 
-2. check_period - interval in minnutes
+2. check_period - interval in minutes / how often to read temperature
 
 3. output_file - log file
 
@@ -28,4 +32,4 @@ Addon reguires Protection Mode to be disabled to access S.M.A.R.T data
 
 ## Credits
 
-- (https://www.smartmontools.org/)
+- https://www.smartmontools.org/
