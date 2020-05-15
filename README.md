@@ -6,10 +6,7 @@
 
 This add-on provides information about HDD Temperature from S.M.A.R.T using smartmontools.
 Temperature is visible in Home-Assistant via sensor sensor.hdd_temp.
-
-## Upcoming
-
-Add-on will provide all S.M.A.R.T data as one sensor with attributes.
+SMART attribiutes are mapped to sensor.hdd_temp sensor attribiutes.
 
 ## Installation
 
