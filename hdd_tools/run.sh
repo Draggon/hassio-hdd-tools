@@ -23,7 +23,6 @@ echo "[$(date)][Info] Init run"
 
 echo "[$(date)][Info] Run performance test"
 /share/hdd_tools/scripts/storage.sh /share/hdd_tools/performance_test/ > /share/hdd_tools/performance.log
-echo "$PERFORMACE_OUTPUT" > /share/hdd_tools/performance.log
 cat /share/hdd_tools/performance.log | sed  -n '/Category/,$p'
 echo "[$(date)][Info] Performance test end"
 
