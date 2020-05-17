@@ -10,10 +10,13 @@ ATTRIBUTES=$(echo "$SMARTCTL_OUTPUT" | egrep -o '^[0-9 ]+.*[0-9]+$' | awk '{prin
 MAIN_VALUE=$(echo "$SMARTCTL_OUTPUT" | grep Temperature_Celsius | awk '{print $(NF)}')
 API_CALL_BODY='{"state": "'"$MAIN_VALUE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"Hdd Temp",'"${ATTRIBUTES::-1}"'}}'
 
-echo "[$(date)][Info] Sensor value: $MAIN_VALUE°" > /proc/1/fd/1 2>/proc/1/fd/2
-echo "[$(date)][Info] API call body: $API_CALL_BODY" > /proc/1/fd/1 2>/proc/1/fd/2
+echo "[$(date)][Info] Sensor value: $MAIN_VALUE°"
+#echo "[$(date)][Debug] API call body: $API_CALL_BODY" > /proc/1/fd/1 2>/proc/1/fd/2
 
 curl -X POST -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
+       -s \
+       -o /dev/null \
        -H "Content-Type: application/json" \
        -d "$API_CALL_BODY" \
-       http://supervisor/core/api/states/sensor.hdd_temp
+       -w "[$(date)][Info] Sensor update response code: %{http_code}\n" \
+       http://supervisor/core/api/states/sensor.hdd_temp 

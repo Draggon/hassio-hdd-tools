@@ -1,6 +1,6 @@
 {
   "name": "HDD Tools",
-  "version": "0.41",
+  "version": "0.42",
   "slug": "hdd_tools",
   "description": "HDD Tools provides S.M.A.R.T information",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],

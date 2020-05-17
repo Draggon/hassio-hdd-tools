@@ -15,14 +15,17 @@ echo "[$(date)][Info] Configuration - output file: $OUTPUT_FILE"
 
 mkdir -p /share/hdd_tools/scripts/
 mkdir -p /share/hdd_tools/performance_test/
-cp /opt/storage.sh /share/hdd_tools/scripts/storage.sh
-cp /opt/main.sh /share/hdd_tools/scripts/main.sh
+cp -n /opt/storage.sh /share/hdd_tools/scripts/storage.sh
+cp -n /opt/main.sh /share/hdd_tools/scripts/main.sh
 
 echo "[$(date)][Info] Init run"
 /share/hdd_tools/scripts/main.sh
 
 echo "[$(date)][Info] Run performance test"
 /share/hdd_tools/scripts/storage.sh /share/hdd_tools/performance_test/ > /share/hdd_tools/performance.log
+echo "$PERFORMACE_OUTPUT" > /share/hdd_tools/performance.log
+cat /share/hdd_tools/performance.log | sed  -n '/Category/,$p'
+echo "[$(date)][Info] Performance test end"
 
 echo "[$(date)][Info] Cron tab update"
 sed -i "s/TIME_TOKEN/$CHECK_PERIOD/g" /etc/cron.d/cron
