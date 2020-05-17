@@ -13,10 +13,16 @@ echo "[$(date)][Info] Configuration - check period: $CHECK_PERIOD"
 OUTPUT_FILE="$(jq --raw-output '.output_file' $CONFIG_PATH)"
 echo "[$(date)][Info] Configuration - output file: $OUTPUT_FILE" 
 
-mkdir -p /share/hdd_tools/
+mkdir -p /share/hdd_tools/scripts/
+mkdir -p /share/hdd_tools/performance_test/
+cp /opt/storage.sh /share/hdd_tools/scripts/storage.sh
+cp /opt/main.sh /share/hdd_tools/scripts/main.sh
 
 echo "[$(date)][Info] Init run"
-/opt/main.sh
+/share/hdd_tools/scripts/main.sh
+
+echo "[$(date)][Info] Run performance test"
+/share/hdd_tools/scripts/storage.sh /share/hdd_tools/performance_test/ > /share/hdd_tools/performance.log
 
 echo "[$(date)][Info] Cron tab update"
 sed -i "s/TIME_TOKEN/$CHECK_PERIOD/g" /etc/cron.d/cron

@@ -6,6 +6,7 @@
 
 This add-on provides information about HDD Temperature from S.M.A.R.T using smartmontools.
 Temperature is visible in Home-Assistant via sensor sensor.hdd_temp.
+At start add-on runs PiBenchmarks https://jamesachambers.com/raspberry-pi-storage-benchmarks-2019-benchmarking-script/ and stores output in /share/hdd_tools/performance.log
 
 ## Configuration
 
@@ -21,6 +22,14 @@ The configuration:
 
 Addon reguires Protection Mode to be disabled to access S.M.A.R.T data
 
+<h3>Update History</h3>
+
+<h4>17.05.2020</h4>
+<ul>
+  <li>Added PiBenchmarks performance test</li>
+</ul>
+
 ## Credits
 
 - https://www.smartmontools.org/
+- https://github.com/TheRemote/PiBenchmarks
