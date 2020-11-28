@@ -15,7 +15,6 @@
       "friendly_name": "Hdd Temp",
       "hdd_path": "/dev/sda",
       "check_period": 1,
-      "debug": false,
       "output_file": "temp.log",
       "debug": false,
       "attributes_property": "",
