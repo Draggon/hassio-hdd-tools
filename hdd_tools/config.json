@@ -14,6 +14,7 @@
       "performance_check": false,
       "hdd_path": "/dev/sda",
       "check_period": 1,
+      "debug": false,
       "output_file": "temp.log",
       "attributes_property": ""
     },
@@ -21,6 +22,7 @@
       "performance_check": "bool",
       "hdd_path": "str",
       "check_period": "int(1,60)",
+      "debug": "bool",
       "output_file": "str",
       "attributes_property": "str"
     }
