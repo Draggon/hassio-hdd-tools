@@ -12,22 +12,22 @@ At start add-on runs PiBenchmarks https://jamesachambers.com/raspberry-pi-storag
 
 Configure the add-on via your Home Assistant front-end under **Supervisor (Hass.io) → Dashboard → HDD Tools**.
 
-The configuration:
+### Configuration parameters
 
-- hdd_path - path to drive to monitor
-- check_period - interval in minutes / how often to read temperature
-- output_file - log file
+| Parameter | Description |
+|-----------|-------------|
+| sensor_name | Name for the sensor which is exposed to home-assistant
+| friendly_name | Friendly name for the sensor which is exposed to home-assistant
+| performance_check | flag to enable or disable the execution of performance check at startup
+| hdd_path | path to drive to monitor
+| check_period | interval in minutes / how often to read temperature
+| debug | flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
+| output_file | log file
+| attributes_property | attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
 
 ## Notes
 
 Addon reguires Protection Mode to be disabled to access S.M.A.R.T data
-
-<h3>Update History</h3>
-
-<h4>17.05.2020</h4>
-<ul>
-  <li>Added PiBenchmarks performance test</li>
-</ul>
 
 ## Credits
 

@@ -1,22 +1,37 @@
 CONFIG_PATH=/data/options.json
 
+SENSOR_NAME="$(jq --raw-output '.sensor_name' $CONFIG_PATH)"
+FRIENDLY_NAME="$(jq --raw-output '.friendly_name' $CONFIG_PATH)"
 HDD_PATH="$(jq --raw-output '.hdd_path' $CONFIG_PATH)"
+DEBUG="$(jq --raw-output '.debug' $CONFIG_PATH)"
 OUTPUT_FILE="$(jq --raw-output '.output_file' $CONFIG_PATH)"
+ATTRIBUTES_PROPERTY="$(jq --raw-output '.attributes_property' $CONFIG_PATH)"
 
-SMARTCTL_OUTPUT=$(/usr/sbin/smartctl -a $HDD_PATH)
-echo "$SMARTCTL_OUTPUT" > /share/hdd_tools/${OUTPUT_FILE}
+SMARTCTL_OUTPUT=$(/usr/sbin/smartctl -a $HDD_PATH --json)
 
-ATTRIBUTES=$(echo "$SMARTCTL_OUTPUT" | egrep -o '^[0-9 ]+.*[0-9]+$' | awk '{print "\"" $2 "\":\"" $(NF) "\"," }' | awk '{print tolower($0)}' | tr -d '\n') 
-MAIN_VALUE=$(echo "$SMARTCTL_OUTPUT" | grep Temperature_Celsius | awk '{print $(NF)}')
-API_CALL_BODY='{"state": "'"$MAIN_VALUE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"Hdd Temp",'"${ATTRIBUTES::-1}"'}}'
+if [ -z "$SENSOR_NAME" ]; then
+    echo "Please check your configuration. sensor_name seems to be missing!"
+    exit 1;
+fi
 
-echo "[$(date)][Info] Sensor value: $MAIN_VALUE°"
-#echo "[$(date)][Debug] API call body: $API_CALL_BODY" > /proc/1/fd/1 2>/proc/1/fd/2
+if [ "$DEBUG" = "true" ]; then
+    echo "$SMARTCTL_OUTPUT" > /share/hdd_tools/${OUTPUT_FILE}
+fi
+
+CURRENT_TEMPERATURE=$(echo $SMARTCTL_OUTPUT | jq --raw-output '.temperature.current')
+SENSOR_DATA='{"state": "'"$CURRENT_TEMPERATURE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"'"$FRIENDLY_NAME"'"}}'
+
+if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
+    ATTRIBUTES=$(echo $SMARTCTL_OUTPUT | jq -e --raw-output ".${ATTRIBUTES_PROPERTY}" || echo "{}")
+    SENSOR_DATA=$(echo $SENSOR_DATA | jq ".attributes += $ATTRIBUTES")
+fi
+
+echo "[$(date)][Info] Sensor value: $CURRENT_TEMPERATURE°"
 
 curl -X POST -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
        -s \
        -o /dev/null \
        -H "Content-Type: application/json" \
-       -d "$API_CALL_BODY" \
+       -d "$SENSOR_DATA" \
        -w "[$(date)][Info] Sensor update response code: %{http_code}\n" \
-       http://supervisor/core/api/states/sensor.hdd_temp 
+       http://supervisor/core/api/states/${SENSOR_NAME}
