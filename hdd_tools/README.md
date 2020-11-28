@@ -16,6 +16,8 @@ Configure the add-on via your Home Assistant front-end under **Supervisor (Hass.
 
 | Parameter | Description |
 |-----------|-------------|
+| sensor_name | Name for the sensor which is exposed to home-assistant
+| friendly_name | Friendly name for the sensor which is exposed to home-assistant
 | performance_check | flag to enable or disable the execution of performance check at startup
 | hdd_path | path to drive to monitor
 | check_period | interval in minutes / how often to read temperature

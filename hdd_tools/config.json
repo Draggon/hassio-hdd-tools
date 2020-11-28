@@ -11,14 +11,18 @@
   "full_access": true,
   "homeassistant_api": true,
   "options": {
-      "performance_check": false,
+      "sensor_name": "sensor.hdd_temp",
+      "friendly_name": "Hdd Temp",
       "hdd_path": "/dev/sda",
       "check_period": 1,
-      "debug": false,
       "output_file": "temp.log",
-      "attributes_property": ""
-    },
+      "debug": false,
+      "attributes_property": "",
+      "performance_check": false
+  },
   "schema": {
+      "sensor_name": "str",
+      "friendly_name": "str",
       "performance_check": "bool",
       "hdd_path": "str",
       "check_period": "int(1,60)",
