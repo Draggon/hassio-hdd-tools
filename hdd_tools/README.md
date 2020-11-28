@@ -16,9 +16,10 @@ Configure the add-on via your Home Assistant front-end under **Supervisor (Hass.
 
 | Parameter | Description |
 |-----------|-------------|
-| performance_check | boolean to enable or disable the execution of performance check at startup
+| performance_check | flag to enable or disable the execution of performance check at startup
 | hdd_path | path to drive to monitor
 | check_period | interval in minutes / how often to read temperature
+| debug | flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
 | output_file | log file
 | attributes_property | attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
 
