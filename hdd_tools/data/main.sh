@@ -16,7 +16,7 @@ SENSOR_DATA='{"state": "'"$CURRENT_TEMPERATURE"'", "attributes": {"unit_of_measu
 
 if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
     ATTRIBUTES=$(echo $SMARTCTL_OUTPUT | jq -e --raw-output ".${ATTRIBUTES_PROPERTY}" || echo "{}")
-    SENSOR_DATA=$(echo $SENSOR_DATA | jq -n ".attributes += $ATTRIBUTES")
+    SENSOR_DATA=$(echo $SENSOR_DATA | jq ".attributes += $ATTRIBUTES")
 fi
 
 echo "[$(date)][Info] Sensor value: $CURRENT_TEMPERATURE°"
