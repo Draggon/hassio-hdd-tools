@@ -18,16 +18,18 @@
       "output_file": "temp.log",
       "debug": false,
       "attributes_property": "",
-      "performance_check": false
+      "performance_check": false,
+      "attributes_format": "object"
   },
   "schema": {
-      "sensor_name": "str",
+      "sensor_name": "match(^sensor\.\w{1,})",
       "friendly_name": "str",
       "performance_check": "bool",
       "hdd_path": "str",
       "check_period": "int(1,60)",
       "debug": "bool",
       "output_file": "str",
-      "attributes_property": "str"
+      "attributes_property": "str",
+      "attributes_format": "match(^object|list$)"
     }
 }
