@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- `attributes_format` which can be one of `list` or `object` to tell this addon which format the JSON output has.
 
 ### Changed
 
