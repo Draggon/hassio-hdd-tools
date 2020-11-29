@@ -22,7 +22,7 @@
       "attributes_format": "object"
   },
   "schema": {
-      "sensor_name": "match(^sensor\.\w{1,})",
+      "sensor_name": "match(^sensor\\.\\w*$)",
       "friendly_name": "str",
       "performance_check": "bool",
       "hdd_path": "str",
