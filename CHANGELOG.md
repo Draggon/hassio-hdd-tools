@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.46.0 - TBD
+## 0.46.0 - 2020-11-29
 
 ### Added
 
