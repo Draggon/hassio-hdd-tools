@@ -24,7 +24,7 @@ if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
         object)
         ;;
         list)
-            ATTRIBUTES=$(echo $ATTRIBUTES | jq 'map({(.name): .raw.string | capture("^(?<value>[[:digit:]]+)").value | tonumber}) | add | with_entries(.key |= ascii_downcase)')
+            ATTRIBUTES=$(echo $ATTRIBUTES | jq 'map({(if .name == "Unknown_Attribute" then "Unknown_Attribute_" + (.id | tostring) else .name end): .raw.string | capture("^(?<value>[[:digit:]]+)").value | tonumber}) | add | with_entries(.key |= ascii_downcase)')
         ;;
         *)
             echo "[$(date)][ERROR] Unsupported attributes format \"$ATTRIBUTES_FORMAT\" given!"
