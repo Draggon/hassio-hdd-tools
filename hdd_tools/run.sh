@@ -41,7 +41,7 @@ echo "[$(date)][Info] Apply cron tab"
 crontab /etc/cron.d/cron
 
 if [ -b $HDD_PATH ]; then 
-    echo "[$(date)][Info] Device $HDD_PATH found - staring CRON"    
+    echo "[$(date)][Info] Device $HDD_PATH found - starting CRON"    
     crond -f
 else
     echo "[$(date)][Info] Device $HDD_PATH not found - exiting"    
