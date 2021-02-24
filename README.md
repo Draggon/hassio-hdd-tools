@@ -602,10 +602,6 @@ attributes_property: ata_smart_attributes.table
 attributes_format: list
 ```
 
-## Notes
-
-Addon reguires Protection Mode to be disabled to access S.M.A.R.T data
-
 ## Credits
 
 - https://www.smartmontools.org/
