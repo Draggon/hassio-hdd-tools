@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.47.0 - 2021-03-08
+
+### Added
+
+- Add support for homeassistant 2021.2.0+
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.46.0 - 2020-11-29
 
 ### Added
