@@ -3,6 +3,7 @@
   "version": "0.47",
   "slug": "hdd_tools",
   "description": "HDD Tools provides S.M.A.R.T information",
+  "url": "https://github.com/Draggon/hassio-hdd-tools",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
