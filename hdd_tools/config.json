@@ -8,8 +8,9 @@
   "startup": "application",
   "boot": "auto",
   "map": ["share:rw"],
-  "devices": ["/dev/sda"],
-  "privileged": ["SYS_RAWIO"],
+  "devices": ["/dev/sda", "/dev/nvme0"],
+  "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
+  "full_access": true,
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
   "options": {
