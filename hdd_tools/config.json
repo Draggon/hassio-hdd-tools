@@ -8,7 +8,7 @@
   "startup": "application",
   "boot": "auto",
   "map": ["share:rw"],
-  "devices": ["/dev/sda"],
+  "devices": ["/dev/sda", "/dev/sdb", "/dev/sdc", "/dev/sdd", "/dev/sde"],
   "privileged": ["SYS_RAWIO"],
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
