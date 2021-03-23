@@ -1,6 +1,6 @@
 {
   "name": "HDD Tools",
-  "version": "0.47",
+  "version": "0.48",
   "slug": "hdd_tools",
   "description": "HDD Tools provides S.M.A.R.T information",
   "url": "https://github.com/Draggon/hassio-hdd-tools",
@@ -8,8 +8,9 @@
   "startup": "application",
   "boot": "auto",
   "map": ["share:rw"],
-  "devices": ["/dev/sda"],
-  "privileged": ["SYS_RAWIO"],
+  "devices": ["/dev/sda", "/dev/nvme0"],
+  "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
+  "full_access": true,
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
   "options": {

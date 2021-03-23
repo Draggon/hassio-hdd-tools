@@ -597,7 +597,7 @@ attributes_format: list
 
 ## Notes
 
-Addon reguires Protection Mode to be disabled to access S.M.A.R.T data
+For some devices, the addon reguires Protection Mode to be disabled to access S.M.A.R.T data. If your device is mapped as `/dev/sda` or `/dev/nvme0` it will work out of the box. If not, you will need to disable Protection Mode.
 
 ## Credits
 
