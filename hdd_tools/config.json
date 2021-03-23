@@ -1,6 +1,6 @@
 {
   "name": "HDD Tools",
-  "version": "0.47",
+  "version": "0.48",
   "slug": "hdd_tools",
   "description": "HDD Tools provides S.M.A.R.T information",
   "url": "https://github.com/Draggon/hassio-hdd-tools",

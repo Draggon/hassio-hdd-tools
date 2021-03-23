@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.48.0 - 2021-03-23
+
+### Added
+
+- Add support for `/dev/nvme0` out of the box
+- Add the option to disable _Protection Mode_ in _Home Assistant_ to support devices different than `/dev/sda0` and `/dev/nvme0`
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.47.0 - 2021-03-08
 
 ### Added
