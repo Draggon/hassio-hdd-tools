@@ -1,0 +1,29 @@
+configuration:
+  sensor_name:
+    name: Name of the sensor
+    description: Name for the sensor which is exposed to Home Assistant    
+  friendly_name:
+    name: Friendly name
+    description: Friendly name for the sensor which is exposed to Home Assistant
+  hdd_path:
+    name: Path of HDD
+    description: Path to drive to monitor
+  attributes_format:
+    name: Format of the attributes
+    description:  One of `object` or `list`. More details in the Documentation tab.
+  attributes_property:
+    name: Attributes property
+    description: Attribute you want to merge with the attributes in your sensor. Check the output file for the available properties.
+  check_period:
+    name: Check period
+    description: Interval in minutes / how often to read temperature
+  performance_check:
+    name: Performance check
+    description: Flag to enable or disable the execution of performance check at startup
+  debug:
+    name: Debug
+    description: Flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of smartctl you want to be merged to the sensor.
+  output_file:
+    name: Output file
+    description: Log file
+ 

@@ -8,13 +8,13 @@
 |-----------|-------------|
 | sensor_name | Name for the sensor which is exposed to home-assistant
 | friendly_name | Friendly name for the sensor which is exposed to home-assistant
-| performance_check | flag to enable or disable the execution of performance check at startup
-| hdd_path | path to drive to monitor
-| check_period | interval in minutes / how often to read temperature
-| debug | flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
-| output_file | log file
-| attributes_property | attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
-| attributes_format | one of `object` or `list`. See more details [here](#attributes).
+| hdd_path | Path to drive to monitor
+| attributes_format | One of `object` or `list`. See more details [here](#attributes).
+| attributes_property | Attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
+| check_period | Interval in minutes / how often to read temperature
+| performance_check | Flag to enable or disable the execution of performance check at startup
+| debug | Flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
+| output_file | Log file
 
 ### Attributes
 

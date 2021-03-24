@@ -1,0 +1,19 @@
+configuration:
+  sensor_name:
+    name: Nombre del sensor
+  friendly_name:
+    name: Nombre amigable
+  hdd_path:
+    name: Descriptor del disco
+  attributes_format:
+    name: Formato de los atributos
+  attributes_property:
+    name: Propiedad con los atributos
+  check_period:
+    name: Intervalo de comprobación
+  performance_check:
+    name: Comprobar el rendimiento
+  debug:
+    name: Depuración
+  output_file:
+    name: Archivo de salida
