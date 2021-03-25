@@ -8,9 +8,7 @@
   "startup": "application",
   "boot": "auto",
   "map": ["share:rw"],
-  "devices": ["/dev/sda", "/dev/nvme0"],
   "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
-  "full_access": true,
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
   "options": {
@@ -28,11 +26,11 @@
       "sensor_name": "match(^sensor\\.\\w*$)",
       "friendly_name": "str",
       "performance_check": "bool",
-      "hdd_path": "str",
+      "hdd_path": "device(subsystem=block)",
       "check_period": "int(1,60)",
       "debug": "bool",
       "output_file": "str",
       "attributes_property": "str",
-      "attributes_format": "match(^object|list$)"
+      "attributes_format": "list(object|list)"
     }
 }
