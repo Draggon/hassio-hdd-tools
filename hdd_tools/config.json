@@ -15,22 +15,22 @@
       "sensor_name": "sensor.hdd_temp",
       "friendly_name": "Hdd Temp",
       "hdd_path": "/dev/sda",
-      "check_period": 1,
-      "output_file": "temp.log",
-      "debug": false,
+      "attributes_format": "object",
       "attributes_property": "",
+      "check_period": 1,
       "performance_check": false,
-      "attributes_format": "object"
+      "debug": false,
+      "output_file": "temp.log"
   },
   "schema": {
       "sensor_name": "match(^sensor\\.\\w*$)",
       "friendly_name": "str",
-      "performance_check": "bool",
       "hdd_path": "device(subsystem=block)",
-      "check_period": "int(1,60)",
-      "debug": "bool",
-      "output_file": "str",
+      "attributes_format": "list(object|list)",
       "attributes_property": "str",
-      "attributes_format": "list(object|list)"
+      "check_period": "int(1,60)",
+      "performance_check": "bool",
+      "debug": "bool",
+      "output_file": "str"
     }
 }
