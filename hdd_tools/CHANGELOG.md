@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.49.0 - 2021-03-25
+
+### Added
+
+- Added a more descriptive UI for the _Configuration_ tab in Home Assistant.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- The disable _Protection Mode_ option has been removed. There is not need of it anymore.
+
+### Fixed
+
+- Nothing.
+
 ## 0.48.0 - 2021-03-23
 
 ### Added
