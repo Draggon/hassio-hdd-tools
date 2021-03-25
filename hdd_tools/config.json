@@ -18,6 +18,8 @@
       "attributes_format": "object",
       "attributes_property": "",
       "check_period": 1,
+      "database_update": true,
+      "database_update_period": 168,
       "performance_check": false,
       "debug": false,
       "output_file": "temp.log"
@@ -29,6 +31,8 @@
       "attributes_format": "list(object|list)",
       "attributes_property": "str",
       "check_period": "int(1,60)",
+      "database_update": "bool",
+      "database_update_period": "int(1,5000)",
       "performance_check": "bool",
       "debug": "bool",
       "output_file": "str"

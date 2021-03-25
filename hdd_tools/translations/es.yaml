@@ -10,7 +10,11 @@ configuration:
   attributes_property:
     name: Propiedad con los atributos
   check_period:
-    name: Intervalo de comprobación
+    name: Intervalo de comprobación (minutos)
+  database_update:
+    name: Actualizar base de datos de discos duros
+  database_update_period:
+    name: Periodo de actualización de la base de datos de discos duros (horas) 
   performance_check:
     name: Comprobar el rendimiento
   debug:
