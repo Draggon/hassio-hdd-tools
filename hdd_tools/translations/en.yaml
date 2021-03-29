@@ -15,8 +15,14 @@ configuration:
     name: Attributes property
     description: Attribute you want to merge with the attributes in your sensor. Check the output file for the available properties.
   check_period:
-    name: Check period
+    name: Check period (minutes)
     description: Interval in minutes / how often to read temperature
+  database_update:
+    name: Update drives database
+    description: Flag to enable the update of the smartmontools drives database
+  database_update_period:
+    name: Drives database update period (hours) 
+    description: Interval in hours / how often the drive database is updated
   performance_check:
     name: Performance check
     description: Flag to enable or disable the execution of performance check at startup

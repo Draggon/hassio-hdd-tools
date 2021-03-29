@@ -12,6 +12,8 @@
 | attributes_format | One of `object` or `list`. See more details [here](#attributes).
 | attributes_property | Attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
 | check_period | Interval in minutes / how often to read temperature
+| database_update | Flag to enable the update of the smartmontools drives database
+| database_update_period | Interval in hours / how often the drives database is updated
 | performance_check | Flag to enable or disable the execution of performance check at startup
 | debug | Flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
 | output_file | Log file
