@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.50.0 - 2021-03-29
+
+### Added
+
+- Added an option to update the drives database
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing
+
+### Fixed
+
+- Nothing.
+
 ## 0.49.0 - 2021-03-25
 
 ### Added
