@@ -15,7 +15,7 @@ COPY data/storage.sh /opt/storage.sh
 RUN chmod 0755 /opt/storage.sh
 
 COPY data/database.sh /opt/database.sh
-RUN chmod 0755 /opt/storage.sh
+RUN chmod 0755 /opt/database.sh
 
 # Copy data for add-on
 COPY run.sh /
