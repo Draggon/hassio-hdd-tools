@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.50.1 - 2021-03-31
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing
+
+### Fixed
+
+- Fixed execution permissions when updating database.
+
 ## 0.50.0 - 2021-03-29
 
 ### Added
