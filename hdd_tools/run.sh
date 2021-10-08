@@ -27,9 +27,9 @@ echo "[$(date)][INFO] Configuration - attributes property: $ATTRIBUTES_PROPERTY"
 
 mkdir -p /share/hdd_tools/scripts/
 mkdir -p /share/hdd_tools/performance_test/
-cp /opt/storage.sh /share/hdd_tools/scripts/storage.sh
-cp /opt/main.sh /share/hdd_tools/scripts/main.sh
-cp /opt/database.sh /share/hdd_tools/scripts/database.sh
+cp -p /opt/storage.sh /share/hdd_tools/scripts/storage.sh
+cp -p /opt/main.sh /share/hdd_tools/scripts/main.sh
+cp -p /opt/database.sh /share/hdd_tools/scripts/database.sh
 
 echo "[$(date)][INFO] Init run"
 /share/hdd_tools/scripts/main.sh
