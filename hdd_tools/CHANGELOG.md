@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.50.2 - 2021-10-08
+
+### Added
+
+- Added again full access (protected mode) option. Something has changed in Home Assistant and now it seems to need it again.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing
+
+### Fixed
+
+- Preserve permissions when copying scripts.
+
 ## 0.50.1 - 2021-03-31
 
 ### Added
