@@ -9,6 +9,8 @@
   "boot": "auto",
   "map": ["share:rw"],
   "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
+  "devices": ["/dev/sda", "/dev/sdb", "/dev/sdc", "/dev/sdd", "/dev/sde", "/dev/nvme0", "/dev/nvme1"],
+  "full_access": true,
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
   "options": {
