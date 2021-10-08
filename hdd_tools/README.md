@@ -11,6 +11,10 @@ This add-on provides information about HDD Temperature from S.M.A.R.T using smar
 
 Check the *Documentation* tab to get more information about `options` and `parameters`.
 
+## Notes
+
+For some devices and Home Assistant versions, the addon reguires Protection Mode to be disabled to access S.M.A.R.T data. If you see an error in the HDD Tools log try to disable Protection Mode.
+
 ## Credits
 
 - https://www.smartmontools.org/
