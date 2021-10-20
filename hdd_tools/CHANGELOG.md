@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.51.0 - 2021-10-20
+
+### Added
+
+- Added attributes for long term storage statistics in Home Assistant.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.50.2 - 2021-10-08
 
 ### Added
