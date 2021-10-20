@@ -15,7 +15,7 @@ if [ "$DEBUG" = "true" ]; then
 fi
 
 CURRENT_TEMPERATURE=$(echo $SMARTCTL_OUTPUT | jq --raw-output '.temperature.current')
-SENSOR_DATA='{"state": "'"$CURRENT_TEMPERATURE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"'"$FRIENDLY_NAME"'"}}'
+SENSOR_DATA='{"state": "'"$CURRENT_TEMPERATURE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"'"$FRIENDLY_NAME"'","device_class":"temperature","state_class":"measurement"}}'
 
 if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
     ATTRIBUTES=$(echo $SMARTCTL_OUTPUT | jq -e --raw-output ".${ATTRIBUTES_PROPERTY}" || echo "{}")
