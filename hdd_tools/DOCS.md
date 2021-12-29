@@ -6,7 +6,8 @@
 
 | Parameter | Description |
 |-----------|-------------|
-| sensor_name | Name for the sensor which is exposed to home-assistant
+| sensor_state_type | Type of the sensor which is exposed to home-assistant. Can be `smart_state` or `temperature`.
+| sensor_name | Name for the sensor which is exposed to home-assistant. For `smart_state` it must begin with `binary_sensor.`, for `temperature` it must begin with `sensor.`.
 | friendly_name | Friendly name for the sensor which is exposed to home-assistant
 | hdd_path | Path to drive to monitor
 | attributes_format | One of `object` or `list`. See more details [here](#attributes).

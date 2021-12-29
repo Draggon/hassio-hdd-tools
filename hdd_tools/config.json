@@ -2,7 +2,7 @@
   "name": "HDD Tools",
   "version": "0.51.0",
   "slug": "hdd_tools",
-  "description": "HDD Tools provides S.M.A.R.T information",
+  "description": "HDD Tools provides S.M.A.R.T. information",
   "url": "https://github.com/Draggon/hassio-hdd-tools",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
@@ -14,8 +14,9 @@
   "homeassistant": "2021.2.0",
   "homeassistant_api": true,
   "options": {
-      "sensor_name": "sensor.hdd_temp",
-      "friendly_name": "Hdd Temp",
+      "sensor_state_type": "temperature",
+      "sensor_name": "sensor.hdd_smart",
+      "friendly_name": "Hdd SMART",
       "hdd_path": "/dev/sda",
       "attributes_format": "object",
       "attributes_property": "",
@@ -27,7 +28,8 @@
       "output_file": "temp.log"
   },
   "schema": {
-      "sensor_name": "match(^sensor\\.\\w*$)",
+      "sensor_state_type": "list(smart_state|temperature)",
+      "sensor_name": "match(^(sensor|binary_sensor)\\.\\w*$)",
       "friendly_name": "str",
       "hdd_path": "device(subsystem=block)",
       "attributes_format": "list(object|list)",
