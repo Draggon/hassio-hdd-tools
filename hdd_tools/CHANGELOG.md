@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.52.0 - 2021-12-30
+
+### Added
+
+- New option to let choose between temperature or SMART state as main value of the sensor. Check the documentation before changing it to adjust the sensor name accordingly between `sensor` and `binary_sensor` .
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.51.0 - 2021-10-20
 
 ### Added
