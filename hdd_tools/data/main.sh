@@ -1,5 +1,6 @@
 CONFIG_PATH=/data/options.json
 
+SENSOR_STATE_TYPE="$(jq --raw-output '.sensor_state_type' $CONFIG_PATH)"
 SENSOR_NAME="$(jq --raw-output '.sensor_name' $CONFIG_PATH)"
 FRIENDLY_NAME="$(jq --raw-output '.friendly_name' $CONFIG_PATH)"
 HDD_PATH="$(jq --raw-output '.hdd_path' $CONFIG_PATH)"
@@ -14,8 +15,40 @@ if [ "$DEBUG" = "true" ]; then
     echo "$SMARTCTL_OUTPUT" > /share/hdd_tools/${OUTPUT_FILE}
 fi
 
-CURRENT_TEMPERATURE=$(echo $SMARTCTL_OUTPUT | jq --raw-output '.temperature.current')
-SENSOR_DATA='{"state": "'"$CURRENT_TEMPERATURE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"'"$FRIENDLY_NAME"'","device_class":"temperature","state_class":"measurement"}}'
+if ! [ -z "$SENSOR_STATE_TYPE" ]; then
+    case "$SENSOR_STATE_TYPE" in
+        temperature)
+            if [[ $SENSOR_NAME != sensor\.* ]]; then
+                echo "[$(date)][ERROR] The sensor name \"$SENSOR_NAME\" must start by 'sensor.' for 'temperature' mode!"
+                exit 1
+            fi
+            TEMPERATURE_VALUE=$(echo $SMARTCTL_OUTPUT | jq --raw-output '.temperature.current')
+            echo "[$(date)][INFO] Sensor value as temperature: ${TEMPERATURE_VALUE}"
+            SENSOR_DATA='{"state": "'"$TEMPERATURE_VALUE"'", "attributes": {"unit_of_measurement":"°C","friendly_name":"'"$FRIENDLY_NAME"'","device_class":"temperature","state_class":"measurement"}}'
+        ;;
+        smart_state)
+            if [[ $SENSOR_NAME != binary_sensor\.* ]]; then
+                echo "[$(date)][ERROR] The sensor name \"$SENSOR_NAME\" must start by 'binary_sensor.' for 'smart_state' mode!"
+                exit 1
+            fi
+            SMART_STATUS_VALUE=$(echo $SMARTCTL_OUTPUT | jq --raw-output '.smart_status.passed')            
+            PROBLEM_STATUS_VALUE="on"
+            if [ "$SMART_STATUS_VALUE" = "true" ]; then
+                PROBLEM_STATUS_VALUE="off"
+            fi
+            echo "[$(date)][INFO] Sensor value as smart_state: ${SMART_STATUS_VALUE}, problem: ${PROBLEM_STATUS_VALUE}"
+            SENSOR_DATA='{"state": "'"$PROBLEM_STATUS_VALUE"'", "attributes": {"friendly_name":"'"$FRIENDLY_NAME"'","device_class":"problem"}}'
+        ;;
+        *)
+            echo "[$(date)][ERROR] Unsupported sensor state type \"$SENSOR_STATE_TYPE\" given!"
+            exit 1
+        ;;
+    esac
+fi
+
+if [ "$DEBUG" = "true" ]; then
+    echo "[$(date)][DEBUG] Sensor data before attributes: $SENSOR_DATA"
+fi
 
 if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
     ATTRIBUTES=$(echo $SMARTCTL_OUTPUT | jq -e --raw-output ".${ATTRIBUTES_PROPERTY}" || echo "{}")
@@ -34,8 +67,7 @@ if ! [ -z "$ATTRIBUTES_PROPERTY" ]; then
 
     SENSOR_DATA=$(echo $SENSOR_DATA | jq ".attributes += $ATTRIBUTES")
 fi
-
-echo "[$(date)][INFO] Sensor value: ${CURRENT_TEMPERATURE}°"
+    
 
 if [ "$DEBUG" = "true" ]; then
     echo "[$(date)][DEBUG] Sensor data which would be pushed to home-assistant and exposed as \"$SENSOR_NAME\": $SENSOR_DATA"

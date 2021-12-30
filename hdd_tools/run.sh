@@ -4,6 +4,9 @@ echo "[$(date)][INFO] HDD Tools start"
 
 CONFIG_PATH=/data/options.json
 
+SENSOR_STATE_TYPE="$(jq --raw-output '.sensor_state_type' $CONFIG_PATH)"
+echo "[$(date)][INFO] Configuration - sensor state type: $SENSOR_STATE_TYPE"
+
 PERFORMANCE_CHECK="$(jq --raw-output '.performance_check' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - performance check enabled: $PERFORMANCE_CHECK"
 

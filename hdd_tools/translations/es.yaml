@@ -1,4 +1,6 @@
 configuration:
+  sensor_state_type:
+    name: Tipo de sensor
   sensor_name:
     name: Nombre del sensor
   friendly_name:
