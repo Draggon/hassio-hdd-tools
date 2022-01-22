@@ -1,6 +1,6 @@
 {
   "name": "HDD Tools",
-  "version": "0.52.0",
+  "version": "0.52.0-eroldan",
   "slug": "hdd_tools",
   "description": "HDD Tools provides S.M.A.R.T. information",
   "url": "https://github.com/Draggon/hassio-hdd-tools",
@@ -24,7 +24,8 @@
       "database_update_period": 168,
       "performance_check": false,
       "debug": false,
-      "output_file": "temp.log"
+      "output_file": "temp.log",
+      "device_type": "auto"
   },
   "schema": {
       "sensor_state_type": "list(smart_state|temperature)",
@@ -38,6 +39,7 @@
       "database_update_period": "int(1,5000)",
       "performance_check": "bool",
       "debug": "bool",
-      "output_file": "str"
+      "output_file": "str",
+      "device_type": "str"
     }
 }
