@@ -18,6 +18,7 @@
 | performance_check | Flag to enable or disable the execution of performance check at startup
 | debug | Flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of `smartctl` you want to be merged to the sensor.
 | output_file | Log file
+| device_type | Type of block device which `smartctl` will try to use for communication. Default "auto". Check https://www.smartmontools.org/wiki/USB
 
 ### Attributes
 

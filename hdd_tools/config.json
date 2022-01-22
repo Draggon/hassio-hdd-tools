@@ -25,7 +25,8 @@
       "database_update_period": 168,
       "performance_check": false,
       "debug": false,
-      "output_file": "temp.log"
+      "output_file": "temp.log",
+      "device_type": "auto"
   },
   "schema": {
       "sensor_state_type": "list(smart_state|temperature)",
@@ -39,6 +40,7 @@
       "database_update_period": "int(1,5000)",
       "performance_check": "bool",
       "debug": "bool",
-      "output_file": "str"
+      "output_file": "str",
+      "device_type": "str"
     }
 }
