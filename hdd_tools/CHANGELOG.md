@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 0.53.0 - 2022-06-22
+
+### Added
+
+- Nothing
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Fixed error `s6-overlay-suexec: fatal` produced by changes in Home Assistant.
+
 ## 0.52.0 - 2021-12-30
 
 ### Added
