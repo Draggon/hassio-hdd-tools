@@ -37,5 +37,5 @@ configuration:
     description: Log file
   device_type:
     name: Device type
-    description: some block device types require to be explicityly declared for smartctl to work, for example some USB bridges (https://www.smartmontools.org/wiki/USB)
+    description: Some block device types require to be explicitly declared for smartctl to work, for example some USB bridges (https://www.smartmontools.org/wiki/USB)
  
