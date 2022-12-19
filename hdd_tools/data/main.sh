@@ -4,11 +4,11 @@ SENSOR_STATE_TYPE="$(jq --raw-output '.sensor_state_type' $CONFIG_PATH)"
 SENSOR_NAME="$(jq --raw-output '.sensor_name' $CONFIG_PATH)"
 FRIENDLY_NAME="$(jq --raw-output '.friendly_name' $CONFIG_PATH)"
 HDD_PATH="$(jq --raw-output '.hdd_path' $CONFIG_PATH)"
+DEVICE_TYPE="$(jq --raw-output '.device_type' $CONFIG_PATH)"
 DEBUG="$(jq --raw-output '.debug' $CONFIG_PATH)"
 OUTPUT_FILE="$(jq --raw-output '.output_file' $CONFIG_PATH)"
 ATTRIBUTES_PROPERTY="$(jq --raw-output '.attributes_property' $CONFIG_PATH)"
 ATTRIBUTES_FORMAT="$(jq --raw-output '.attributes_format' $CONFIG_PATH)"
-DEVICE_TYPE="$(jq --raw-output '.device_type' $CONFIG_PATH)"
 
 SMARTCTL_OUTPUT=$(/usr/sbin/smartctl -a $HDD_PATH -d $DEVICE_TYPE --json)
 

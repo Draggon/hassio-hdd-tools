@@ -1,7 +1,7 @@
 configuration:
   sensor_state_type:
     name: Tipo de sensor
-    description: Valor del sensor a exponer a Home Assistant, puede ser temperature o smart_state
+    description: Valor del sensor a exponer a Home Assistant, puede ser 'temperature' o 'smart_state'
   sensor_name:
     name: Nombre del sensor
     description: Nombre del sensor que se expondrá a Home Assistant
