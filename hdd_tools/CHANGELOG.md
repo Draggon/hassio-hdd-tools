@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.0.0 - 2022-12-19
+
+### Added
+
+- The possibility to specify the device type to smartctl
+- Spanish translations for descriptions
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.53.0 - 2022-06-22
 
 ### Added
