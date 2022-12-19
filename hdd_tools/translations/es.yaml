@@ -7,6 +7,8 @@ configuration:
     name: Nombre amigable
   hdd_path:
     name: Descriptor del disco
+  device_type:
+    name: Tipo de dispositivo
   attributes_format:
     name: Formato de los atributos
   attributes_property:
