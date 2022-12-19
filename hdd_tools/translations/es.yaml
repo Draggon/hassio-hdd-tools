@@ -1,27 +1,40 @@
 configuration:
   sensor_state_type:
     name: Tipo de sensor
+    description: Valor del sensor a exponer a Home Assistant, puede ser 'temperature' o 'smart_state'
   sensor_name:
     name: Nombre del sensor
+    description: Nombre del sensor que se expondrá a Home Assistant
   friendly_name:
     name: Nombre amigable
+    description: Nombre amigable del sensor que se expone a Home Assistant
   hdd_path:
     name: Descriptor del disco
+    description: Ruta de la unidad a monitorizar
   device_type:
     name: Tipo de dispositivo
+    description: Tipo del dispositivo de bloque que 'smartctl' intentará usar para la comunicación. Por defecto 'auto'. Consulta https://www.smartmontools.org/wiki/USB
   attributes_format:
     name: Formato de los atributos
+    description:  Uno entre 'object' o 'list'. Mas detalles en la pestaña de Documentación
   attributes_property:
     name: Propiedad con los atributos
+    description: Atributo que quieres fusionar en los atributos de tu sensor. Consulta el fichero de salida para ver las propiedades disponibles
   check_period:
     name: Intervalo de comprobación (minutos)
+    description: Intervalo en minutos / frecuencia con la que se lee la temperatura
   database_update:
     name: Actualizar base de datos de discos duros
+    description: Marca para activar la actualización de la base de datos de unidades de smartmoontools
   database_update_period:
     name: Periodo de actualización de la base de datos de discos duros (horas) 
+    description: Intervalo en horas / frecuencia con la que la base de datos de unidades se actualiza
   performance_check:
     name: Comprobar el rendimiento
+    description: Marca para activar o desactivar la ejecución de un test de rendimiento al arrancar
   debug:
     name: Depuración
+    description: Marca para activar o desactivar la depuración. Activar esto si quieres depurar la propiedad del JSON de salida de smartctl que quieres fusionar con el sensor
   output_file:
     name: Archivo de salida
+    description: Archivo de registro

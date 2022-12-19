@@ -10,7 +10,7 @@
 | sensor_name | Name for the sensor which is exposed to home-assistant. For `smart_state` it must begin with `binary_sensor.`, for `temperature` it must begin with `sensor.`.
 | friendly_name | Friendly name for the sensor which is exposed to home-assistant
 | hdd_path | Path to drive to monitor
-| device_type | Type of block device which `smartctl` will try to use for communication. Default "auto". Check https://www.smartmontools.org/wiki/USB
+| device_type | Type of block device which `smartctl` will try to use for communication. Default `auto`. Check https://www.smartmontools.org/wiki/USB
 | attributes_format | One of `object` or `list`. See more details [here](#attributes).
 | attributes_property | Attribute you want to merge with the attributes in your sensor. Check the `output_file` for the available properties.
 | check_period | Interval in minutes / how often to read temperature

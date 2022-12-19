@@ -13,14 +13,17 @@ echo "[$(date)][INFO] Configuration - performance check enabled: $PERFORMANCE_CH
 HDD_PATH="$(jq --raw-output '.hdd_path' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - disk path: $HDD_PATH" 
 
+DEVICE_TYPE="$(jq --raw-output '.device_type' $CONFIG_PATH)"
+echo "[$(date)][INFO] Configuration - device type: $DEVICE_TYPE"
+
 SMART_CHECK_PERIOD="$(jq --raw-output '.check_period' $CONFIG_PATH)"
-echo "[$(date)][INFO] Configuration - check period: $SMART_CHECK_PERIOD" 
+echo "[$(date)][INFO] Configuration - check period: $SMART_CHECK_PERIOD"
 
 DATABASE_UPDATE="$(jq --raw-output '.database_update' $CONFIG_PATH)"
-echo "[$(date)][INFO] Configuration - database update: $DATABASE_UPDATE" 
+echo "[$(date)][INFO] Configuration - database update: $DATABASE_UPDATE"
 
 DATABASE_UPDATE_PERIOD="$(jq --raw-output '.database_update_period' $CONFIG_PATH)"
-echo "[$(date)][INFO] Configuration - database update period: $DATABASE_UPDATE_PERIOD" 
+echo "[$(date)][INFO] Configuration - database update period: $DATABASE_UPDATE_PERIOD"
 
 OUTPUT_FILE="$(jq --raw-output '.output_file' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - output file: $OUTPUT_FILE"
