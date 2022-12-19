@@ -11,6 +11,9 @@ configuration:
   hdd_path:
     name: Path of HDD
     description: Path to drive to monitor
+  device_type:
+    name: Device type
+    description: Type of block device which `smartctl` will try to use for communication. Default "auto". Check https://www.smartmontools.org/wiki/USB
   attributes_format:
     name: Format of the attributes
     description:  One of `object` or `list`. More details in the Documentation tab.
@@ -34,5 +37,4 @@ configuration:
     description: Flag to enable or disable debugging. Activate this if you want to debug which property from the JSON output of smartctl you want to be merged to the sensor.
   output_file:
     name: Output file
-    description: Log file
- 
+    description: Log file 
