@@ -1,0 +1,41 @@
+configuration:
+  sensor_state_type:
+    name: Typ sensora
+    description: Wartość czujnika do udostępnienia w Home Assistant może być 'temperature' lub 'smart_state'
+  sensor_name:
+    name: Nazwa sensora
+    description: Nazwa sensora, który jest wystawiony do Home Assistant
+  friendly_name:
+    name: Friendly name
+    description: Friendly name dla sensora, który jest wystawiony do Home Assistant
+  hdd_path:
+    name: Ścieżka dysku twardego
+    description: Ścieżka do monitorowanego dysku
+  device_type:
+    name: Rodzaj urządzenia
+    description: Rodzaj urządzenia blokowego, które 'smartctl' spróbuje użyć do komunikacji. Domyślnie 'auto'. Sprawdź https://www.smartmontools.org/wiki/USB
+  attributes_format:
+    name: Format atrybutów
+    description:  Jedno z 'object' lub 'list'. Więcej szczegółów w zakładce Dokumentacja.
+  attributes_property:
+    name: Właściwości atrybutów
+    description: Atrybuty, które chcesz połączyć z atrybutami w swoim sensorze. Sprawdź plik wyjściowy pod kątem dostępnych właściwości
+  check_period:
+    name: Okres sprawdzania (minuty)
+    description: Interwał w minutach / jak często odczytywać temperaturę
+  database_update:
+    name: Zaktualizuj bazę dysków
+    description: Flaga umożliwiająca aktualizację bazy danych dysków smartmontools
+  database_update_period:
+    name: Okres aktualizacji bazy danych dysków (w godzinach)
+    description: Interval in hours / how often the drive daInterwał w godzinach / jak często aktualizowana jest baza dyskówtabase is updated
+  performance_check:
+    name: Sprawdzenie wydajności (benchmarki)
+    description: Zaznacz, aby włączyć wykonywanie sprawdzania wydajności podczas uruchamiania
+  debug:
+    name: Debugowanie
+    description: Zaznacz, aby włączyć debugowanie. Aktywuj to, jeśli chcesz debugować, która właściwość z wyjścia JSON smartctl ma zostać połączona z sensorem
+  output_file:
+    name: Plik wyjściowy
+    description: Plik logu
+    
