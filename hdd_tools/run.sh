@@ -7,11 +7,21 @@ CONFIG_PATH=/data/options.json
 SENSOR_STATE_TYPE="$(jq --raw-output '.sensor_state_type' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - sensor state type: $SENSOR_STATE_TYPE"
 
+ADDITIONAL_SENSOR_STATE_TYPE="$(jq --raw-output '.additional_sensor_state_types' $CONFIG_PATH)"
+echo "[$(date)][INFO] Configuration - additional sensor state type: $ADDITIONAL_SENSOR_STATE_TYPE"
+
 PERFORMANCE_CHECK="$(jq --raw-output '.performance_check' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - performance check enabled: $PERFORMANCE_CHECK"
 
 HDD_PATH="$(jq --raw-output '.hdd_path' $CONFIG_PATH)"
-echo "[$(date)][INFO] Configuration - disk path: $HDD_PATH" 
+echo "[$(date)][INFO] Configuration - disk path: $HDD_PATH"
+
+ADDITIONAL_HDD_PATHS="$(jq --raw-output '.additional_hdd_paths[]' $CONFIG_PATH)"
+echo "[$(date)][INFO] Configuration - additional disk paths: $ADDITIONAL_HDD_PATHS"
+
+# Merge HDD_PATH and ADDITIONAL_HDD_PATHS into a single list
+MERGED_HDD_PATHS=("$HDD_PATH" "${ADDITIONAL_HDD_PATHS[@]}")
+echo "[$(date)][INFO] Configuration - Merged HDD Paths: ${MERGED_HDD_PATHS[*]}"
 
 DEVICE_TYPE="$(jq --raw-output '.device_type' $CONFIG_PATH)"
 echo "[$(date)][INFO] Configuration - device type: $DEVICE_TYPE"
@@ -61,12 +71,23 @@ fi
 echo "[$(date)][INFO] Apply cron tab"
 crontab /etc/cron.d/cron
 
-if [ -b $HDD_PATH ]; then 
-    echo "[$(date)][INFO] Device $HDD_PATH found - starting CRON"    
+DEVICE_FOUND=false
+
+for path in "${MERGED_HDD_PATHS[@]}"; do
+    if [ -b "$path" ]; then
+        echo "[$(date)][INFO] Device $path found"
+        DEVICE_FOUND=true
+    else
+        echo "[$(date)][WARNING] Device $path not found"
+    fi
+done
+
+if [ "$DEVICE_FOUND" = true ]; then
+    echo "[$(date)][INFO] At least one Device found - starting CRON"
     crond -f
 else
-    echo "[$(date)][INFO] Device $HDD_PATH not found - exiting"    
+    echo "[$(date)][INFO] No devices found - exiting"
     exit 1
 fi
 
-echo $(date) "HDD Tools exit"
+echo "$(date) HDD Tools exit"

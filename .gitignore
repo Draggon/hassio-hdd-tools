@@ -1,0 +1,10 @@
+# generic log or temporary files
+*.log
+*.tmp
+
+# Tools
+.DS_Store
+.idea
+.vscode
+.vagrant/
+.gradle

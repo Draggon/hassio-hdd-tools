@@ -1,0 +1,25 @@
+{
+      "sensor_state_type": "temperature",
+      "additional_sensor_state_types": ["smart_state"],
+      "sensor_name": "sensor.hdd_smart",
+      "additional_sensor_names": ["binary_sensor.hdd_smart2"],
+      "friendly_name": "Hdd SMART",
+      "additional_friendly_names": ["Hdd SMART2"],
+      "hdd_path": "/dev/disk0",
+      "additional_hdd_paths": ["/dev/disk3"],
+      "device_type": "auto",
+      "additional_device_types":
+      [
+        "auto"
+      ],
+      "attributes_format": "object",
+      "additional_attributes_formats": ["object"],
+      "attributes_property": "nvme_smart_health_information_log",
+      "additional_attributes_properties": ["nvme_smart_health_information_log"],
+      "check_period": 1,
+      "database_update": true,
+      "database_update_period": 168,
+      "performance_check": false,
+      "debug": true,
+      "output_file": "temp.log"
+  }
