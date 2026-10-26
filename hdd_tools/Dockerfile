@@ -1,4 +1,4 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:stable
 FROM $BUILD_FROM
 
 RUN apk add --no-cache coreutils util-linux ncurses build-base make fio hdparm perl smartmontools vim apk-cron gnupg
